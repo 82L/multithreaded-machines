@@ -5,3 +5,10 @@ C:\Users\Pierre-Baptiste\source\repos\lesmachines\lesmachines\obj\Debug\lesmachi
 C:\Users\Pierre-Baptiste\source\repos\lesmachines\lesmachines\obj\Debug\lesmachines.csproj.CoreCompileInputs.cache
 C:\Users\Pierre-Baptiste\source\repos\lesmachines\lesmachines\obj\Debug\lesmachines.exe
 C:\Users\Pierre-Baptiste\source\repos\lesmachines\lesmachines\obj\Debug\lesmachines.pdb
+C:\Users\Pierre-Baptiste\source\repos\lesmachines - Copie (2)\lesmachines\bin\Debug\lesmachines.exe.config
+C:\Users\Pierre-Baptiste\source\repos\lesmachines - Copie (2)\lesmachines\bin\Debug\lesmachines.exe
+C:\Users\Pierre-Baptiste\source\repos\lesmachines - Copie (2)\lesmachines\bin\Debug\lesmachines.pdb
+C:\Users\Pierre-Baptiste\source\repos\lesmachines - Copie (2)\lesmachines\obj\Debug\lesmachines.csprojAssemblyReference.cache
+C:\Users\Pierre-Baptiste\source\repos\lesmachines - Copie (2)\lesmachines\obj\Debug\lesmachines.csproj.CoreCompileInputs.cache
+C:\Users\Pierre-Baptiste\source\repos\lesmachines - Copie (2)\lesmachines\obj\Debug\lesmachines.exe
+C:\Users\Pierre-Baptiste\source\repos\lesmachines - Copie (2)\lesmachines\obj\Debug\lesmachines.pdb
