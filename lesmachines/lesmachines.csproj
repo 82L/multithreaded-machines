@@ -51,7 +51,7 @@
     <Compile Include="Machine.cs" />
     <Compile Include="Basket.cs" />
     <Compile Include="Producer.cs" />
-    <Compile Include="ProducerConsumer.cs" />
+    <Compile Include="ConsumerProducer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

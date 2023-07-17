@@ -46,26 +46,11 @@ namespace LesMachines
         {
             this._randomNumberGenerator = new Random();
             this.Id = id;
-            // this.Basket = basket;
-            // this.basketFunction = basketFunction;
+            
             // Multiplied by 1000 because sleep is in millis
             this._maxMakingDurationForResource = (maxMakingDurationForResource*1000)+1;
             this._minMakingDurationForResource = minMakingDurationForResource*1000;
         }
-        
-        
-        
-        /// <summary>
-        /// What happens if the machine has an error in interacting with the basket
-        /// </summary>
-        /// <param name="basket">Concerned basket</param>
-        protected abstract void BasketInteractionFail(Basket basket);
-
-       /// <summary>
-       /// What happens if the machine succeed in interacting with the basket
-       /// </summary>
-       /// <param name="basket">Concerned basket</param>
-        protected abstract void BasketUsed(Basket basket);
 
         /// <summary>
         ///  Get if we need to pulse the machine, depending of basket state
@@ -76,7 +61,7 @@ namespace LesMachines
         /// <summary>
         /// Set duration for current piece 
         /// </summary>
-        protected int GetDurationForCurrentPiece()
+        protected int GetDurationForCurrentResource()
         {
             return _randomNumberGenerator.Next(_minMakingDurationForResource, _maxMakingDurationForResource);
         }
@@ -91,19 +76,17 @@ namespace LesMachines
         /// </summary>
         /// <param name="basket">Basket to interact with</param>
         /// <param name="basketFunction">Basket function to use in process</param>
-        protected virtual void BasketInteraction(Basket basket, Func<bool> basketFunction)
+        protected virtual void BasketInteraction(Basket basket, Func<int, bool> basketFunction)
         {
             lock (basket)
             {
-                bool success = basketFunction();
+                bool success = basketFunction(Id);
 
                 while (!success)
                 {
-                    BasketInteractionFail(basket);
                     Monitor.Wait(basket);
-                    success = basketFunction();
+                    success = basketFunction(Id);
                 }
-                BasketUsed(basket);
                 
                 if (DoesOtherMachinesMayNeedAPulse())
                 {

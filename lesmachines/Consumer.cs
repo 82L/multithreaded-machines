@@ -31,19 +31,9 @@ namespace LesMachines
         }
         
         
-        protected override void BasketInteractionFail(Basket basket)
-        {
-            System.Console.WriteLine("Machine {0}: basket P{1} empty", Id, basket.Id);
-        }
-        
-        protected override void BasketUsed(Basket basket)
-        {
-            System.Console.WriteLine("Machine {0}: take resource from basket P{1} ({2})", Id, basket.Id, basket.ResourceNumber);
-        }
-        
         protected override bool DoesOtherMachinesMayNeedAPulse()
         {
-            return !_basket.IsFull;
+            return _basket.IsFullMinusOne;
         }
         
         public override void ProcessResource()
@@ -52,7 +42,7 @@ namespace LesMachines
             while (true) 
             {
                 BasketInteraction(_basket, _basket.TakeResource);
-                Thread.Sleep(GetDurationForCurrentPiece());
+                Thread.Sleep(GetDurationForCurrentResource());
             }
         }
     }

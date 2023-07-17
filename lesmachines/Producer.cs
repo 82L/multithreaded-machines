@@ -31,19 +31,9 @@ namespace LesMachines
             this._basket = basket;
         }
 
-        protected override void BasketInteractionFail(Basket basket)
-        {
-            System.Console.WriteLine("Machine {0}: basket P{1} full", Id, basket.Id);
-        }
-        
-        protected override void BasketUsed(Basket basket)
-        {
-            System.Console.WriteLine("Machine {0}: put resource in basket P{1} ({2})", Id, basket.Id, basket.ResourceNumber);
-        }
-
         protected override bool DoesOtherMachinesMayNeedAPulse()
         {
-            return !_basket.IsEmpty;
+            return _basket.IsAtOne;
         }
 
         public override void ProcessResource()
@@ -51,7 +41,7 @@ namespace LesMachines
             // Continuous process until end of program
             while (true) 
             {
-                Thread.Sleep(GetDurationForCurrentPiece());
+                Thread.Sleep(GetDurationForCurrentResource());
                 BasketInteraction(_basket, _basket.AddResource);
                
 

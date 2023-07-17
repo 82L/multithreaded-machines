@@ -35,7 +35,7 @@ namespace LesMachines
             
             //Machine declaration
             machines.Add(new Producer(1, 3, 6, basket1));
-            machines.Add(new ProducerConsumer(2,5,9, basket1, basket2));
+            machines.Add(new ConsumerProducer(2,5,9, basket1, basket2));
             machines.Add(new Consumer(3,3,6,basket2));
 
 
